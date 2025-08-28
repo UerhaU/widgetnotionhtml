@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Навыки персонажа</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #1e1e2f;
+      font-family: Arial, sans-serif;
+    }
+    #skillsChart {
+      max-width: 500px;
+      max-height: 500px;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="skillsChart"></canvas>
+
+  <script>
+    const ctx = document.getElementById('skillsChart');
+
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: [
+          'Дисциплина',
+          'Креативность',
+          'Энергия',
+          'Спорт',
+          'Воля',
+          'Общение'
+        ],
+        datasets: [{
+          label: 'Мои навыки',
+          data: [7, 5, 8, 4, 6, 3], // ← тут меняй значения
+          fill: true,
+          backgroundColor: 'rgba(54, 162, 235, 0.3)',
+          borderColor: 'rgb(54, 162, 235)',
+          pointBackgroundColor: 'rgb(54, 162, 235)',
+          pointBorderColor: '#fff',
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: 'rgb(54, 162, 235)'
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          r: {
+            angleLines: { color: "#aaa" },
+            grid: { color: "#444" },
+            suggestedMin: 0,
+            suggestedMax: 10,
+            ticks: { stepSize: 1, color: "#fff" },
+            pointLabels: { color: "#fff", font: { size: 14 } }
+          }
+        },
+        plugins: {
+          legend: {
+            labels: { color: "#fff" }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
